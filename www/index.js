@@ -21,3 +21,15 @@ var app3 = new Vue({
   }
 })
 app3.seen = true;
+
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos : [
+        { text : "test message 1" },
+        { text : "test message 2" },
+        { text : "test message 3" },
+    ]
+  }
+})
+app4.todos.push({ text: 'text message push' })

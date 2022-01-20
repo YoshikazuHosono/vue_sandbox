@@ -33,3 +33,16 @@ var app4 = new Vue({
   }
 })
 app4.todos.push({ text: 'text message push' })
+
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message : "54321 sample message 12345"
+  },
+  methods: {
+    reverseMessage : function(){
+        this.message = this.message.split('').reverse().join('')
+        this.message = this.message + "12345"
+    }
+  }
+})

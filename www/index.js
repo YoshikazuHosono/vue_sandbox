@@ -1,3 +1,7 @@
+Vue.component('todo-item', {
+  template: '<li>This is a todo</li>'
+})
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -52,4 +56,8 @@ var app6 = new Vue({
   data: {
     message: 'input here'
   }
+})
+
+var app7 = new Vue({
+  el: '#app-7',
 })

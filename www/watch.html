@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <label>name:
+            <input type="text" v-model="name" />
+        </label>
+        <p>your name is : {{upperName}}</p>
+
+        <label>autor name:
+            <input type="text" v-model="autor.name" />
+        </label>
+        <p>autor : {{autor.name}} ({{autor.company}})</p>
+
+        <label>god name:
+            <input type="text" v-model="godName" />
+        </label>
+        <p>god is : {{trueGodName}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./watch.js"></script>
+</body>
+</html>

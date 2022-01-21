@@ -19,11 +19,25 @@ new Vue({
       
       // this.current_update_timer = setInterval( () => this.current = new Date(),1000);
 
-      this.autor_timer = setTimeout( () => {
-        // this.autor.name =  'yoshikazu jack hosono';
+      this.autor_add_timer = setTimeout( () => {
         // this.autor.company = 'hosono lab.inc';
         Vue.set(this.autor,'company','hosono lab.inc');
+        console.log(this.$el.textContent.includes(this.autor.company));
+        this.$nextTick().then(() => {
+          console.log(this.$el.textContent.includes(this.autor.company));
+        });
       } , 3000);
+
+      this.autor_remove_timer = setTimeout( () => {
+        Vue.delete(this.autor,'company');
+        this.autor = Object.assign({},this.autor,{
+          company : 'hosono ultimate lab.inc',
+        });
+        console.log(this.$el.textContent.includes(this.autor.company));
+        this.$nextTick().then(() => {
+          console.log(this.$el.textContent.includes(this.autor.company));
+        });
+      } , 6000);
     },
     beforeMount: function(){
       console.log("beforeMount...");
@@ -39,7 +53,9 @@ new Vue({
     },
     beforeDestroy() {
       console.log("beforeDestroy...");
-      clearInterval(this.current_update_timer);
+      // clearInterval(this.current_update_timer);
+      clearInterval(this.autor_add_timer);
+      clearInterval(this.autor_remove_timer);
     },
     destroyed: function(){
       console.log("destroyed...");

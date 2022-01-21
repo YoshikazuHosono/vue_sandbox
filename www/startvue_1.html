@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ message.substring(1) }}</p>
+        <p v-text="message"></p>
+        <p v-text="message">before message</p>
+        <p v-pre>{{ message }}</p>
+
+        <p><a v-bind:href="url_google">Google</a></p>
+        <p><a :href="url_yahoo">Yahoo</a></p>
+
+        <p><input type="button" value="クリック" :disabled="flag"></p>
+
+        <p>{{ user_email }}</p>
+        <p>{{ user_email.split('@')[0] }}</p>
+        <p>{{ user_email.split('@')[1] }}</p>
+        <p>{{ user_email_domain }}</p>
+        <p>{{ user_email_domain_method() }}</p>
+
+        <p><input type="button" value="クリック" v-on:click="onclick"></p>
+        <p>computed random : {{random}}</p>
+        <p>method random : {{random_method()}}</p>
+        <p>current : {{current}}</p>
+
+        <p><input type="button" value="Destroy!!!" v-on:click="onclickDestroy"></p>
+
+        <p>autor : {{autor.name}} ({{autor.company}})</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

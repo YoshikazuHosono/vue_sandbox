@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>v-on:click</h2>
+      <p><button v-on:click="onclick">onclick</button></p>
+      <p><button v-on:click="onclick()">onclick()</button></p>
+      <p>
+        <button v-on:click="current = new Date().toLocaleString()">
+          current = new Date().toLocaleString()
+        </button>
+      </p>
+      <p><button v-on:click="onclick('Hoge')">onclick('Hoge')</button></p>
+      <p><button @click="onclick">@click="onclick"</button></p>
+      <p>current : {{current}}</p>
+    </div>
+
+    <div id="app2">
+      <h2>v-on:mouse</h2>
+      <img
+        :src="src"
+        :alt="alt"
+        @mouseenter="onmouseenter"
+        @mouseleave="onmouseleave"
+        @mousemove="onmousemove"
+      />
+      <p>screen:{{screenX}}/{{screenY}}</p>
+      <p>page:{{pageX}}/{{pageY}}</p>
+      <p>client:{{clientX}}/{{clientY}}</p>
+      <p>offset:{{offsetX}}/{{offsetY}}</p>
+    </div>
+
+    <div id="app3">
+      <h2>v-on:error</h2>
+      <img :src="src" @error="onerror" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./js/directive.js"></script>
+  </body>
+</html>

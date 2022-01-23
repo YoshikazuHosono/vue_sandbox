@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>hi-level-event</h1>
+
+      <h2>prevent</h2>
+      <div id="main" @contextmenu.prevent>
+        コンテキストメニューが表示されない領域展開
+      </div>
+
+      <h2>once</h2>
+      <input type="button" value="一度きりの占い" @click.once="clickFortune" />
+      <p>{{fortune}}</p>
+
+      <h2>event chain</h2>
+      <div id="parent" @click="clickParent">
+        Parent
+        <div id="me" @click="clickMe">
+          Me
+          <div id="child" @click="clickChild">child</div>
+        </div>
+      </div>
+
+      <h2>stop</h2>
+      <div id="parent2" @click="clickParent">
+        Parent
+        <div id="me2" @click="clickMe">
+          Me
+          <div id="child2" @click.stop="clickChild">child</div>
+        </div>
+      </div>
+
+      <h2>self</h2>
+      <div id="parent3" @click="clickParent">
+        Parent
+        <div id="me3" @click.self="clickMe">
+          Me
+          <div id="child3" @click="clickChild">child</div>
+        </div>
+      </div>
+
+      <h2>capture</h2>
+      <div id="parent4" @click.capture="clickParent">
+        Parent
+        <div id="me4" @click.capture="clickMe">
+          Me
+          <div id="child4" @click.capture="clickChild">child</div>
+        </div>
+      </div>
+
+      <h2>key envet</h2>
+      <input type="text" @keyup.27="clear" v-model="name" />
+      <br />
+      <input type="text" @keyup.esc="clear" v-model="name" />
+      <br />
+      <input type="text" @keyup.escape="clear" v-model="name" />
+      <br />
+      <input type="text" @keyup.enter="clear" v-model="name" />
+      <br />
+      <input type="text" @keyup.custom-escape-key="clear" v-model="name" />
+      <br />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./js/hi-level-event.js"></script>
+  </body>
+</html>

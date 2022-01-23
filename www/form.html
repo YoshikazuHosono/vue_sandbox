@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>form</h1>
+      <form>
+        <h2>form:input</h2>
+        <label for="name">name:</label>
+        <input id="name" type="text" v-model="myName" valuee="ignoreValue" />
+        <div>hello {{myName}} !!!</div>
+
+        <h2>form:radio</h2>
+        <label for="dog">dog:</label>
+        <input id="dog" type="radio" v-model="pet" value="dog" />
+        <br />
+        <label for="cat">cat:</label>
+        <input id="cat" type="radio" v-model="pet" value="cat" />
+        <br />
+        <label for="other">other:</label>
+        <input id="other" type="radio" v-model="pet" value="other" />
+        <p>your pet is : {{pet}}</p>
+
+        <h2>form:checkbox(single)</h2>
+        <label for="agree">agree:</label>
+        <input id="agree" type="checkbox" v-model="agree" />
+        <div>result : {{agree}}</div>
+
+        <h2>form:checkbox(multi)</h2>
+        <div>choice using os</div>
+        <label for="windows">windows:</label>
+        <input type="checkbox" v-model="os" id="windows" value="windows" />
+        <label for="mac">mac:</label>
+        <input type="checkbox" v-model="os" id="mac" value="mac" />
+        <label for="linux">linux:</label>
+        <input type="checkbox" v-model="os" id="linux" value="linux" />
+        <div>result : {{os}}</div>
+
+        <h2>form:select(single)</h2>
+        <select id="browser" v-model="browser">
+          <option value="">choice using browser</option>
+          <option>chrome</option>
+          <option>edge</option>
+          <option>opera</option>
+          <option>brave</option>
+          <option>safari</option>
+        </select>
+        <div>result : {{browser}}</div>
+
+        <h2>form:select(multi)</h2>
+        <select id="browser2" multiple v-model="browser2">
+          <option>chrome</option>
+          <option>edge</option>
+          <option>opera</option>
+          <option>brave</option>
+          <option>safari</option>
+        </select>
+        <div>result : {{browser2}}</div>
+
+        <h2>form:bind-value</h2>
+        <label for="million">million:</label>
+        <input
+          id="million"
+          type="radio"
+          v-model="money"
+          :value="{name:'Million',value:'1000000'}"
+        />
+        <br />
+        <label for="billion">billion:</label>
+        <input
+          id="billion"
+          type="radio"
+          v-model="money"
+          :value="{name:'Billion',value:'1000000000'}"
+        />
+        <br />
+        <p>money name : {{money.name}}</p>
+        <p>money value : {{money.value}}</p>
+
+        <h2>form:file</h2>
+        <input ref="upfile" type="file" @change="onchange" />
+        <p>upload status : {{uploadStatus}}</p>
+
+        <h2>bindoption:number</h2>
+        <label for="temperature">temperature:</label>
+        <input
+          id="temperature"
+          type="text"
+          v-model.number="temperature"
+          @change="changeTemperature"
+        />
+
+        <h2>bindoption:trim</h2>
+        <label for="memo">memo:</label>
+        <input id="memo" type="text" v-model.trim="memo" @change="changeMemo" />
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./js/form.js"></script>
+  </body>
+</html>

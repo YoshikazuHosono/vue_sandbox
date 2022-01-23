@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="./style/form.css" />
   </head>
   <body>
     <div id="app">
@@ -11,7 +12,7 @@
         <h2>form:input</h2>
         <label for="name">name:</label>
         <input id="name" type="text" v-model="myName" valuee="ignoreValue" />
-        <div>hello {{myName}} !!!</div>
+        <div v-cloak>hello {{myName}} !!!</div>
 
         <h2>form:radio</h2>
         <label for="dog">dog:</label>

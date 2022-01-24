@@ -23,3 +23,31 @@ Vue.component('my-counter', {
     },
   },
 });
+
+Vue.component('my-emit-counter', {
+  props: {
+    step: {
+      required: true,
+      type: Number,
+    },
+  },
+  template: `<button type="button" @click="onclick">{{step}}</button>`,
+  methods: {
+    onclick: function () {
+      this.$emit('plus', this.step);
+    },
+  },
+});
+
+Vue.component('my-child', {
+  data: function () {
+    return {
+      message: '',
+    };
+  },
+  template: `<p>child : {{message}}</p>`,
+  mounted() {
+    console.log('child component mounted');
+    this.$parent.message = 'msg from child';
+  },
+});

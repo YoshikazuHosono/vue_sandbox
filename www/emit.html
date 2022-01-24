@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>emit</h2>
+      <p>現在値 : {{current}}</p>
+      <my-emit-counter :step="1" @plus="onplus"></my-emit-counter>
+      <my-emit-counter :step="2" @plus="onplus"></my-emit-counter>
+      <my-emit-counter :step="-1" @plus="onplus"></my-emit-counter>
+
+      <h2>emit、propを使用しないコンポーネント通信</h2>
+      <p>parent : {{message}}</p>
+      <my-child ref="child"></my-child>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./js/my-components.js"></script>
+    <script src="./js/emit.js"></script>
+  </body>
+</html>

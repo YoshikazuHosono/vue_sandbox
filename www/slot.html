@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>slot:single</h2>
+      <my-hello></my-hello>
+      <my-hello>真・女神転生細野</my-hello>
+      <my-hello> <my-hello>入れ子できる</my-hello> </my-hello>
+
+      <h2>slot:multi</h2>
+      <my-slot>
+        先頭の文章
+        <template v-slot:header>
+          <h3>ヘッド</h3>
+        </template>
+        中の文章
+        <template v-slot:footer>
+          <span>フット</span>
+        </template>
+        最後の文章
+      </my-slot>
+
+      <h2>slot:smart</h2>
+      <my-slot>
+        <template #header>
+          <h3>ヘッド</h3>
+        </template>
+        <template #default>
+          先頭の文章<br />
+          中の文章<br />
+          最後の文章<br />
+        </template>
+        <template #footer>
+          <span>フット</span>
+        </template>
+      </my-slot>
+
+      <h2>slot:scope</h2>
+      <my-book></my-book>
+      <my-book>
+        <template #default="{book}">
+          {{book.title}} ({{book.price}}円)
+        </template>
+      </my-book>
+      <my-book #default="{book}"> {{book.title}} (ISBN:{{book.isbn}}) </my-book>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="./js/slot.js"></script>
+  </body>
+</html>

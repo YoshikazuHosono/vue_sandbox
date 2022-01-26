@@ -29,7 +29,7 @@ let app = new Vue({
   el: '#app',
   data: {
     currentBannerIdx: 0,
-    bannerList: ['hosono', 'yohsikazu', 'jack'],
+    bannerList: ['hosono', 'yoshikazu', 'jack'],
   },
   created() {
     this.interval = setInterval(() => {

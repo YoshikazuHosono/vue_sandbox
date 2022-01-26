@@ -27,4 +27,22 @@ Vue.component('banner-jack', {
 
 let app = new Vue({
   el: '#app',
+  data: {
+    currentBannerIdx: 0,
+    bannerList: ['hosono', 'yohsikazu', 'jack'],
+  },
+  created() {
+    this.interval = setInterval(() => {
+      this.currentBannerIdx =
+        (this.currentBannerIdx + 1) % this.bannerList.length;
+    }, 3000);
+  },
+  beforeDestroy() {
+    clearInterval(this.interval);
+  },
+  computed: {
+    currentBanner: function () {
+      return 'banner-' + this.bannerList[this.currentBannerIdx];
+    },
+  },
 });

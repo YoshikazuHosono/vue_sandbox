@@ -8,7 +8,24 @@
     <div id="app">
       <h1>chapter5</h1>
       <h2>meta component</h2>
-      <component :is="currentBanner" />
+      <div id="bannercontainer">
+        <h2>test h2 1</h2>
+        <component :is="currentBanner" />
+        <h2>test h2 2</h2>
+        <!-- FIXME <h2>test h2 2</h2>が出力されない。なぜ？？？ -->
+      </div>
+
+      <h2>tab component</h2>
+      <div id="tabcontainer">
+        <ul>
+          <li v-for="tabName in tabNames">
+            <a href="#" @click.prepend="onclick(tabName)">{{tabs[tabName]}}</a>
+          </li>
+        </ul>
+        <keep-alive>
+          <component :is="currentTab"></component>
+        </keep-alive>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>

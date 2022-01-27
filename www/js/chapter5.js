@@ -25,11 +25,44 @@ Vue.component('banner-jack', {
   `,
 });
 
+Vue.component('tab-member', {
+  template: `
+  <div class="tab">
+    <p>tab-membertab-membertab-membertab-membertab-membertab-member</p>
+    <input type="text" />
+  </div>
+  `,
+});
+
+Vue.component('tab-new', {
+  template: `
+  <div class="tab">
+    <p>tab-newtab-newtab-newtab-newtab-newtab-newtab-newtab-newtab-new</p>
+    <input type="text" />
+  </div>
+  `,
+});
+
+Vue.component('tab-env', {
+  template: `
+  <div class="tab">
+    <p>tab-envtab-envtab-envtab-envtab-envtab-envtab-envtab-envtab-env</p>
+    <input type="text" />
+  </div>
+  `,
+});
+
 let app = new Vue({
   el: '#app',
   data: {
     currentBannerIdx: 0,
     bannerList: ['hosono', 'yoshikazu', 'jack'],
+    currentTabKey: 'member',
+    tabs: {
+      member: 'MEMBER',
+      new: 'NEW',
+      env: 'ENV',
+    },
   },
   created() {
     this.interval = setInterval(() => {
@@ -43,6 +76,20 @@ let app = new Vue({
   computed: {
     currentBanner: function () {
       return 'banner-' + this.bannerList[this.currentBannerIdx];
+    },
+    tabNames: function () {
+      return Object.keys(this.tabs);
+    },
+    currentBanner: function () {
+      return 'banner-' + this.bannerList[this.currentBannerIdx];
+    },
+    currentTab: function () {
+      return 'tab-' + this.currentTabKey;
+    },
+  },
+  methods: {
+    onclick(tabkey) {
+      this.currentTabKey = tabkey;
     },
   },
 });

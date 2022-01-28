@@ -80,6 +80,19 @@ Vue.component('my-input2', {
   },
 });
 
+Vue.component('my-input3', {
+  props: ['name'],
+  model: {
+    prop: 'name',
+    event: 'change',
+  },
+  template: `
+  <label>
+    name : <input type="text" :value="name" @input="$emit('change',$event.target.value)" />
+  </label>
+  `,
+});
+
 let app = new Vue({
   el: '#app',
   data: {
@@ -93,6 +106,7 @@ let app = new Vue({
     },
     message: 'message 1',
     message2: 'message 2',
+    message3: 'message 3',
   },
   created() {
     this.interval = setInterval(() => {

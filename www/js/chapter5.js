@@ -52,6 +52,34 @@ Vue.component('tab-env', {
   `,
 });
 
+Vue.component('my-input', {
+  props: ['value'],
+  template: `
+  <label>
+    name : <input type="text" :value="value" @input="$emit('input', $event.target.value)" />
+  </label>
+  `,
+});
+
+Vue.component('my-input2', {
+  props: ['value'],
+  template: `
+  <label>
+    name : <input type="text" v-model="internalValue" />
+  </label>
+  `,
+  computed: {
+    internalValue: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit('input', newValue);
+      },
+    },
+  },
+});
+
 let app = new Vue({
   el: '#app',
   data: {
@@ -63,6 +91,8 @@ let app = new Vue({
       new: 'NEW',
       env: 'ENV',
     },
+    message: 'message 1',
+    message2: 'message 2',
   },
   created() {
     this.interval = setInterval(() => {

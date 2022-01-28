@@ -26,6 +26,12 @@
           <component :is="currentTab"></component>
         </keep-alive>
       </div>
+
+      <h2>component + v-model</h2>
+      <my-input v-model="message"></my-input>
+      <p>input value : {{message}}</p>
+      <my-input2 v-model="message2"></my-input2>
+      <p>input value : {{message2}}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>

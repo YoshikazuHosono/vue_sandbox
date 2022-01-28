@@ -117,6 +117,7 @@ let app = new Vue({
     message2: 'message 2',
     message3: 'message 3',
     message4: 'message 4',
+    panelShow: false,
   },
   created() {
     this.interval = setInterval(() => {
@@ -144,6 +145,9 @@ let app = new Vue({
   methods: {
     onclick(tabkey) {
       this.currentTabKey = tabkey;
+    },
+    clicktogle() {
+      this.panelShow = !this.panelShow;
     },
   },
 });

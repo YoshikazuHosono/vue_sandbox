@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./style/chapter5.css" />
   </head>
   <body>
     <div id="app">
       <h1>chapter5</h1>
+      <h2>animation</h2>
+      <input type="button" value="show/hide" @click="clicktogle" />
+      <transition>
+        <div id="panel" v-show="panelShow">
+          P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L
+          P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L
+        </div>
+      </transition>
+
       <h2>meta component</h2>
       <div id="bannercontainer">
         <h2>test h2 1</h2>

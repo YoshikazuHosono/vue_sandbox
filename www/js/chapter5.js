@@ -117,7 +117,10 @@ let app = new Vue({
     message2: 'message 2',
     message3: 'message 3',
     message4: 'message 4',
-    panelShow: false,
+    panelShow: true,
+    panelShow2: true,
+    panelId: 0,
+    panelContents: ['aaaaaaaaaaaaaaa', 'bbbbbbbbbbbb', 'cccccccccccccccccccc'],
   },
   created() {
     this.interval = setInterval(() => {
@@ -148,6 +151,9 @@ let app = new Vue({
     },
     clicktogle() {
       this.panelShow = !this.panelShow;
+    },
+    clickPanelChange() {
+      this.panelId = (this.panelId + 1) % this.panelContents.length;
     },
   },
 });

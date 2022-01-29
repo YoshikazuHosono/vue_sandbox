@@ -1,9 +1,15 @@
 #panel {
   border: 1px solid #000;
-  width: auto;
+  width: 350px;
   overflow: hidden;
 }
 
+.panel {
+  border: 1px solid #000;
+  width: 350px;
+  overflow: hidden;
+}
+/* sample 1 */
 /* .v-enter-active,
 .v-leave-active {
   transition: opacity 5s;
@@ -25,7 +31,8 @@
   opacity: 0;
 } */
 
-@keyframes slide-in {
+/* sample 2 */
+/* @keyframes slide-in {
   0% {
     transform: translateX(100%);
   }
@@ -43,4 +50,18 @@
 
 .v-leave-active {
   animation: slide-in 1.5s reverse;
+} */
+
+/* .panel2-enter-active,
+.panel2-leave-active {
+  transition: opacity 5s;
 }
+
+.panel2-leave-active {
+  position: absolute;
+}
+
+.panel2-enter,
+.panel2-leave-to {
+  opacity: 0;
+} */

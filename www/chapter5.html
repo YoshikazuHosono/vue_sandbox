@@ -7,6 +7,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
     <link rel="stylesheet" type="text/css" href="./style/chapter5.css" />
   </head>
   <body>
@@ -14,11 +18,19 @@
       <h1>chapter5</h1>
       <h2>animation</h2>
       <input type="button" value="show/hide" @click="clicktogle" />
-      <transition>
+      <transition
+        enter-active-class="animated rollIn"
+        leave-active-class="animated rollOut"
+      >
         <div id="panel" v-show="panelShow">
           P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L
           P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L P/A/N/E/L
         </div>
+      </transition>
+
+      <input type="button" value="change" @click="clickPanelChange" />
+      <transition mode="out-in" name="panel2">
+        <div class="panel" :key="panelId">{{panelContents[panelId]}}</div>
       </transition>
 
       <h2>meta component</h2>

@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 
-.v-enter-active,
+/* .v-enter-active,
 .v-leave-active {
   transition: opacity 5s;
 }
@@ -23,4 +23,24 @@
 
 .v-leave-to {
   opacity: 0;
+} */
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  10% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.v-enter-active {
+  animation: slide-in 1.5s;
+}
+
+.v-leave-active {
+  animation: slide-in 1.5s reverse;
 }
